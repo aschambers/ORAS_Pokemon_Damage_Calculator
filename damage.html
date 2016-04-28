@@ -1,0 +1,247 @@
+<html>
+<head>
+<title>Pokemon ORAS Damage Calculator</title>
+<link rel="stylesheet" type="text/css" href="./static/styles.css">
+<script src="js/main.js"></script>
+</head>
+<body>
+<h1>Pokemon ORAS Damage Calculator</h1>
+<hr>
+<form>
+	<p id="damageresult">
+		"Damage: "
+		<strong>73-86</strong>
+	</p>
+	<!-- sets the default values of calc to these values. -->
+	<p id="detaileddamage">(73, 73, 74, 75, 76, 77, 78, 79, 79, 80, 81, 82, 83, 84, 85, 86)</p>
+	<fieldset id="userinfo">
+		<legend>Attacker</legend>
+		<ul>
+			<!-- if you hover over names, shows info about each table name.  -->
+			<li>
+				<label id="size" title="Input the attacker's level here. Minimum 1, maximum 100." for="level">Level</label>
+				<input title="Input the attacker's level here. Minimum 1, maximum 100." id="level" value="100">
+			</li>
+			<li>
+				<label id="size" title="Input the move's base power here." for="move_power">Move Power</label>
+				<input title="Input the move's base power here." id="move_power" value="100">
+			</li>
+			<li>
+				<label id="size" title="Input the attacker's Attack or Special Attack here. Minimum 1." for="attack">Attack / Sp.Atk</label>
+				<input title="Input the attacker's Attack or Special Attack here. Minimum 1." id="attack" value="100">
+				<input title="Input the attacker's Attack or Special Attack modifier here. Minimum -6, maximum +6." id="attack_stage" value="0">
+			</li>
+			<li>
+				<label id="size" title="Select the attacker's item, ONLY if it's in effect." for="atk_item">Item effect</label>
+				<select title="Select the attacker's item, ONLY if it's in effect." id="atk_item">
+					<option>(other)</option>
+					<option>Adamant Orb</option>
+					<option>Choice Band</option>
+					<option>Choice Specs</option>
+					<option>DeepSeaTooth</option>
+					<option>Expert Belt</option>
+					<option>Life Orb</option>
+					<option>Light Ball</option>
+					<option>Lustrous Orb</option>
+					<option>Metronome</option>
+					<option>Metronome (2x)</option>
+					<option>Metronome (3x)</option>
+					<option>Metronome (4x)</option>
+					<option>Metronome (5x)</option>
+					<option>Metronome (6x)</option>
+					<option>Metronome (7x)</option>
+					<option>Metronome (8x)</option>
+					<option>Metronome (9x)</option>
+					<option>Metronome (10x)</option>
+					<option>Metronome (11x+)</option>
+					<option>Muscle Band</option>
+					<option>Soul Dew</option>
+					<option>Thick Club</option>
+					<option>(Type-up item)</option>
+					<option>Wise Glasses</option>
+				</select>
+			</li>
+			<li>
+				<label id="size" title="Select the attacker's special ability, ONLY if it's in effect." for="atk_ability">Ability effect</label>
+				<select title="Select the attacker's special ability, ONLY if it's in effect." id="atk_ability">
+					<option>(other)</option> 
+					<option>Adaptability</option> 
+					<option>Aerialate</option> 
+					<option>Blaze</option> 
+					<option>Dark Aura</option> 
+					<option>Fairy Aura</option> 
+					<option>Flash Fire</option> 
+					<option>Flower Gift</option> 
+					<option>Guts</option> 
+					<option>Huge Power</option> 
+					<option>Hustle</option> 
+					<option>Iron Fist</option> 
+					<option>Mega Launcher</option> 
+					<option>Minus</option> 
+					<option>Overgrow</option> 
+					<option>Pixilate</option> 
+					<option>Plus</option> 
+					<option>Pure Power</option> 
+					<option>Reckless</option> 
+					<option>Refigerate</option> 
+					<option>Rivalry (+)</option> 
+					<option>Rivalry (-)</option> 
+					<option>Sand Force</option>
+					<option>Sheer Force</option>
+					<option>Simple</option>
+					<option>Slow Start</option>
+					<option>Sniper</option>
+					<option>Solar Power</option>
+					<option>Strong Jaw</option>
+					<option>Swarm</option>
+					<option>Technician</option>
+					<option>Tinted Lens</option>
+					<option>Torrent</option>
+					<option>Tough Claws</option>
+					<option>Unaware</option>
+				</select>
+			</li>
+			<li>
+				<label id="size" title="Is the attacker burnt, and used a physical attack?" for="burn">Burned</label>
+				<input title="Is the attacker burnt, and used a physical attack?" id="burn" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Did the attacker use Charge the previous turn, and the attack used is an Electric-type?" for="charge">Charge</label>
+				<input title="Did the attacker use Charge the previous turn, and the attack used is an Electric-type?" id="charge" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Was the attack a critical hit?" for="critical">Critical Hit</label>
+				<input title="Was the attack a critical hit?" id="critical" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Has the attacker received the effects of Helping Hand?" for="hhand">Helping Hand</label>
+				<input title="Has the attacker received the effects of Helping Hand?" id="hhand" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Is the attack under the effects of Me First?" for="me1st">Me First</label>
+				<input title="Is the attack under the effects of Me First?" id="me1st" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Was the attack directed to more than one Pokemon in the field?" for="twoOpp">Multiple targets</label>
+				<input title="Was the attack directed to more than one Pokemon in the field?" id="twoOpp" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Is the attack Selfdestruct or Explosion?" for="selfD">Selfdestruct / Explosion</label>
+				<input title="Is the attack Selfdestruct or Explosion?" id="selfD" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Is the attack's type the same as the attacker's?" for="stab">STAB</label>
+				<input title="Is the attack's type the same as the attacker's?" id="stab" type="checkbox">
+			</li>
+		</ul>
+	</fieldset>
+	<fieldset id="oppinfo">
+		<legend>Defender</legend>
+		<ul>
+			<li>
+				<label id="size" title="Select the type effectiveness of the attack against the target's PRIMARY type." for="type1">Type Match 1</label>
+				<select title="Select the type effectiveness of the attack against the target's PRIMARY type." id="type1">
+					<option value="1">1x</option>
+					<option value="2">2x</option>
+					<option value="0.5">0,5x</option>
+				</select>
+			</li>
+			<li>
+				<label id="size" title="Select the type effectiveness of the attack against the target's SECONDARY type. Leave it at 1x if not applicable." for="type2">Type Match 2</label>
+				<select title="Select the type effectiveness of the attack against the target's SECONDARY type. Leave it at 1x if not applicable." id="type2">
+					<option value="1">1x</option>
+					<option value="2">2x</option>
+					<option value="0.5">0,5x</option>
+				</select>
+			</li>
+			<li>
+				<label id="size" title="Input the target's Defense or Special Defense here. Minimum 1." for="opp_def">Defense / Sp.Def</label>
+				<input title="Input the target's Defense or Special Defense here. Minimum 1." id="opp_def" value="100">
+				<input title="Input the target's Defense or Special Defense modifier here. Minimum -6, maximum +6." id="opp_def_stage" value="0">
+			</li>
+			<li>
+				<label id="size" title="Select the target's item, ONLY if it's in effect." for="def_item">Item effect</label>
+				<select title="Select the target's item, ONLY if it's in effect." id="def_item">
+					<option>(other)</option>
+					<option>Assault Vest</option>
+					<option>Chilan Berry</option>
+					<option>DeepSeaScale</option>
+					<option>Eviolite</option>
+					<option>Metal Powder</option>
+					<option>Soul Dew</option>
+					<option>(Type-resist berry)</option>
+				</select>
+			</li>
+			<li>
+				<label id="size" title="Select the target's special ability, ONLY if it's in effect." for="def_ability">Ability effect</label>
+				<select title="Select the target's special ability, ONLY if it's in effect." id="def_ability">
+					<option>(other)</option> 
+					<option>Aura Break</option> 
+					<option>Dry Skin</option> 
+					<option>Filter</option> 
+					<option>Flower Gift</option> 
+					<option>Friend Guard</option> 
+					<option>Heat Proof</option> 
+					<option>Marvel Scale</option> 
+					<option>Simple</option> 
+					<option>Solid Rock</option> 
+					<option>Thick Fat</option> 
+					<option>Unaware</option> 
+				</select>
+			</li>
+			<li>
+				<label id="size" title="Is Reflect or Light Screen in effect?" for="barr">Reflect / Light Screen</label>
+				<input title="Is Reflect or Light Screen in effect?" id="barr" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Is Sandstorm in effect, and the target is a Rock-type?" for="storm">Sandstorm effect</label>
+				<input title="Is Sandstorm in effect, and the target is a Rock-type?" id="storm" type="checkbox">
+			</li>
+		</ul>
+	</fieldset>
+	<fieldset id="otherinfo">
+		<legend>Other info</legend>
+		<ul>
+			<li>
+				<label id="size" title="Is it a double battle?" for="double">Double Battle</label>
+				<input title="Is it a double battle?" id="double" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Has Mud Sport been used by a Pokemon, and that Pokemon hasn't been switched out ever since? Only applicable to Electric-type attacks." for="msport">Mud Sport effect</label>
+				<input title="Has Mud Sport been used by a Pokemon, and that Pokemon hasn't been switched out ever since? Only applicable to Electric-type attacks." id="msport" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Has Water Sport been used by a Pokemon, and that Pokemon hasn't been switched out ever since? Only applicable to Fire-type attacks." for="wsport">Water Sport effect</label>
+				<input title="Has Water Sport been used by a Pokemon, and that Pokemon hasn't been switched out ever since? Only applicable to Fire-type attacks." id="wsport" type="checkbox">
+			</li>
+			<li>
+				<label id="size" title="Applicable to Fire- or Water-type attacks versus Rain Dance or Sunny Day." for="weather">Weather effect</label>
+				<select title="Applicable to Fire- or Water-type attacks versus Rain Dance or Sunny Day." id="weather">
+					<option value="1">Normal</option>
+					<option value="1.5">Increases power</option>
+					<option value="0.5">Decreases power</option>
+				</select>
+			</li>
+		</ul>
+	</fieldset>
+</form>
+<script src="js/widgets.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

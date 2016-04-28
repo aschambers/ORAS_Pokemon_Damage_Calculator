@@ -1,0 +1,89 @@
+html, body {
+	cursor: default;
+}
+body {
+	margin-top:2em;
+	background-image: url("pokedex.jpg");
+	background-repeat: no-repeat;
+	z-index:-1;
+}
+a {
+	cursor: pointer;
+}
+html, body, select {
+	font: 24px;
+	color:#600000;
+	font-family:futura;
+}
+input {
+	color:black;
+}
+h1 {
+	font-size: 32px;
+	line-height: 40px;
+}
+label {
+	display: block;
+	float: left;
+	width: 120px;
+}
+form {
+	margin: 0;
+	padding: 0;
+	width: 810px;
+}
+fieldset {
+	width: 380px;
+	margin: 0;
+	padding: 5px 10px;
+}
+legend {
+	font-weight: bold;
+}
+form ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+li {
+	clear: both;
+}
+#size {
+	width:200px;
+	font-size:20px;
+}
+#atk_ability {
+	width:12.45em;
+}
+#def_ability {
+	width:11.75em;
+}
+#attack_stage, #opp_def_stage {
+	width: 2em;
+}
+#level, #move_power, #attack, #opp_def {
+	width: 3em;
+}
+#userinfo {
+	float: left;
+}
+#oppinfo {
+	height:230px;
+	clear: right;
+	float: right;
+}
+#otherinfo {
+	height:153px;
+	clear: right;
+	float: right;
+}
+#damageresult {
+	font-size: 24px;
+	line-height: 30px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+#detaileddamage {
+	margin-top: 0;
+	padding-top: 0;
+}
